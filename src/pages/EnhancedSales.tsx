@@ -117,19 +117,6 @@ export default function EnhancedSales() {
     }
   });
 
-  // Auto-set location from first cart item's product location
-  useEffect(() => {
-    if (cart.length > 0) {
-      const firstProduct = cart[0].product as Product & { location?: { id: number; name: string } | null };
-      if (firstProduct.location_id && !locationId) {
-        setLocationId(firstProduct.location_id);
-      }
-    }
-    // Clear location when cart is empty
-    if (cart.length === 0) {
-      setLocationId(null);
-    }
-  }, [cart]);
 
   // Handle productId from URL (coming from Products page)
   useEffect(() => {
@@ -180,18 +167,6 @@ export default function EnhancedSales() {
   const total = subtotal - discountAmount + taxAmount + customTaxAmount;
 
   const addToCart = (product: Product & { stock_on_hand?: number }) => {
-    // Check if this product is from a different location than items already in cart
-    if (cart.length > 0 && product.location_id) {
-      const currentLocationId = cart[0].product.location_id;
-      if (currentLocationId && product.location_id !== currentLocationId) {
-        toast({
-          title: 'Different shop location',
-          description: 'Cannot add products from different locations to the same sale. Complete this sale first.',
-          variant: 'destructive',
-        });
-        return;
-      }
-    }
 
     const existingItem = cart.find(item => item.product.id === product.id);
     
@@ -634,9 +609,6 @@ export default function EnhancedSales() {
                 customerNotes={notes}
                 onCustomerNotesChange={setNotes}
                 staffMember={staffMember}
-                locationId={locationId}
-                onLocationChange={setLocationId}
-                locationLocked={cart.length > 0}
                 onCreateDepositOrder={handleCreateDepositOrder}
                 isProcessing={createDepositOrder.isPending}
                 disabled={!canCreateSales}
@@ -672,9 +644,6 @@ export default function EnhancedSales() {
                 onSignatureChange={setSignature}
                 staffMember={staffMember}
                 onStaffMemberChange={setStaffMember}
-                locationId={locationId}
-                onLocationChange={setLocationId}
-                locationLocked={cart.length > 0}
                 disabled={!canCreateSales}
               />
             )}

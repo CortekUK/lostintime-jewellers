@@ -164,12 +164,6 @@ const ProductCard = ({
                     Purchased: {formatDate((product as any).purchase_date, 'short')}
                   </p>
                 )}
-                {product.location && (
-                  <p className="text-muted-foreground flex items-center gap-1">
-                    <MapPin className="h-3 w-3" />
-                    {product.location.name}
-                  </p>
-                )}
               </div>
             </div>
           </div>

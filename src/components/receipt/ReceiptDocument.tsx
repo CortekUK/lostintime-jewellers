@@ -36,11 +36,11 @@ export function ReceiptDocument({ data, settings }: ReceiptProps) {
   
   // Get store and branding info from settings
   const store = settings?.store || {
-    name: "Sourced Clothing",
+    name: "Lost In Time",
     tagline: "Premium Fashion & Apparel",
     address: "123 High Street, London SW1A 1AA",
     phone: "020 7123 4567",
-    email: "info@sourcedclothing.com"
+    email: "info@lostintime.com"
   };
   
   const branding = settings?.branding || {

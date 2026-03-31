@@ -217,14 +217,6 @@ export function ProductTable({
                     Supplier {getSortIcon('supplier')}
                   </button>
                 </TableHead>
-                <TableHead className="min-w-[100px]">
-                  <button
-                    onClick={() => handleSort('location')}
-                    className="flex items-center gap-1 hover:text-foreground transition-colors"
-                  >
-                    Location {getSortIcon('location')}
-                  </button>
-                </TableHead>
                 <TableHead className="w-[90px]">Stock</TableHead>
                 <TableHead className="min-w-[100px] text-right">
                   <button
@@ -323,17 +315,6 @@ export function ProductTable({
                     </TableCell>
 
                     {/* Location */}
-                    <TableCell className={cellPadding}>
-                      {product.location?.name ? (
-                        <span className="text-sm flex items-center gap-1">
-                          <MapPin className="h-3 w-3 text-muted-foreground" />
-                          {product.location.name}
-                        </span>
-                      ) : (
-                        <span className="text-sm text-muted-foreground">—</span>
-                      )}
-                    </TableCell>
-
                     {/* Stock Status */}
                     <TableCell className={cellPadding}>
                       <div className="flex flex-col gap-1">

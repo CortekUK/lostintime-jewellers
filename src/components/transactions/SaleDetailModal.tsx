@@ -308,12 +308,6 @@ export function SaleDetailModal({ saleId, open, onClose, focusLineItemId }: Sale
                 <User className="h-3 w-3" />
                 {(sale as any).staff_member_name || sale.profiles?.full_name || 'Unknown'}
               </Badge>
-              {(sale as any).locations?.name && (
-                <Badge variant="outline" className="gap-1.5 px-2.5 py-1 text-xs font-normal">
-                  <MapPin className="h-3 w-3" />
-                  {(sale as any).locations.name}
-                </Badge>
-              )}
             </div>
           </DialogHeader>
 

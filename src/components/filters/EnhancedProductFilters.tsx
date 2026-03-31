@@ -323,34 +323,6 @@ export function EnhancedProductFilters({
                   </Popover>
                 </div>
 
-                {/* Location */}
-                {locations.length > 1 && (
-                  <div className="space-y-2">
-                    <Label className="text-sm font-medium">Location</Label>
-                    <Select
-                      value={draftFilters.locations?.length === 1 ? draftFilters.locations[0] : 'all'}
-                      onValueChange={(value) => {
-                        if (value === 'all') {
-                          setDraftFilters({...draftFilters, locations: []});
-                        } else {
-                          setDraftFilters({...draftFilters, locations: [value]});
-                        }
-                      }}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="All Locations" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Locations</SelectItem>
-                        {locations.map((location) => (
-                          <SelectItem key={location.id} value={location.id.toString()}>
-                            {location.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                )}
 
                 {/* Stock Availability */}
                 <div className="space-y-2">

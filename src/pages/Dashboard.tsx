@@ -685,6 +685,7 @@ export default function Dashboard() {
         <PurchasingSnapshotCards />
       </div>
 
+
       {/* Cash Drawer Status - Owner/Manager only */}
       {isAtLeast('manager') && (
         <div className="mb-6 md:mb-8">

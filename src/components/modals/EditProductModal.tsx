@@ -1040,26 +1040,6 @@ export function EditProductModal({ product, open, onOpenChange }: EditProductMod
                   </p>
                 </div>
 
-                {locations && locations.length > 0 && (
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-muted-foreground" />
-                      <Label>Location</Label>
-                    </div>
-                    <Select value={formData.location_id} onValueChange={(value) => setFormData({...formData, location_id: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select location (optional)" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {locations.filter(loc => loc.status === 'active').map((location) => (
-                          <SelectItem key={location.id} value={location.id.toString()}>
-                            {location.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                )}
               </AccordionContent>
             </AccordionItem>
 

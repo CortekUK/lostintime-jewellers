@@ -97,7 +97,6 @@ export function DepositCheckoutSection({
     hasItems &&
     customerName.trim() &&
     staffMember &&
-    locationId &&
     initialPaymentAmount > 0 &&
     initialPaymentAmount <= totalAmount &&
     !isProcessing &&
@@ -128,24 +127,6 @@ export function DepositCheckoutSection({
             <span className="font-medium">{staffMember || 'Loading...'}</span>
           </div>
         </div>
-
-        {/* Shop Location */}
-        {locationLocked && locationId ? (
-          <div className="space-y-2">
-            <Label className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              Shop Location *
-            </Label>
-            <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg border">
-              <span className="font-medium">{resolvedLocationName}</span>
-              <Badge variant="secondary" className="ml-auto text-xs">
-                From product
-              </Badge>
-            </div>
-          </div>
-        ) : (
-          <LocationSelector value={locationId} onChange={onLocationChange} required />
-        )}
 
         {/* Customer Information */}
         <CustomerSearchInput
@@ -238,7 +219,7 @@ export function DepositCheckoutSection({
 
         {/* Create Button */}
         <Button
-          className="w-full text-lg font-bold shadow-gold bg-gradient-primary hover:scale-[1.02] transition-all duration-300"
+          className="w-full text-base font-bold shadow-gold bg-gradient-primary hover:scale-[1.02] transition-all duration-300 whitespace-nowrap overflow-visible min-h-[48px]"
           size="lg"
           onClick={handleCreate}
           disabled={!canCreate}
@@ -272,11 +253,7 @@ export function DepositCheckoutSection({
           </p>
         )}
 
-        {hasItems && customerName.trim() && !locationId && (
-          <p className="text-center text-sm text-muted-foreground">Select a shop location</p>
-        )}
-
-        {hasItems && customerName.trim() && locationId && initialPaymentAmount <= 0 && (
+        {hasItems && customerName.trim() && initialPaymentAmount <= 0 && (
           <p className="text-center text-sm text-muted-foreground">
             Enter an initial deposit amount to continue
           </p>

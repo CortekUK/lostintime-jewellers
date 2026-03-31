@@ -19,7 +19,7 @@ import { AppLayout } from '@/components/layout/AppLayout';
 import { CSVExportButton } from '@/components/csv/CSVExportButton';
 import { CSVImportModal } from '@/components/csv/CSVImportModal';
 import { UserManagement } from '@/components/settings/UserManagement';
-import { LocationsSettings } from '@/components/settings/LocationsSettings';
+// Location feature removed - single location business
 import { RolePermissionsManager } from '@/components/settings/RolePermissionsManager';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
@@ -544,7 +544,7 @@ export default function Settings() {
       if (outcome === 'accepted') {
         toast({
           title: 'App installed',
-          description: 'Sourced Clothing CRM has been installed successfully!',
+          description: 'Lost In Time CRM has been installed successfully!',
         });
         setShowInstallPrompt(false);
       } else {
@@ -846,8 +846,6 @@ export default function Settings() {
               </CardContent>
             </Card>
 
-            {/* Store Locations */}
-            <LocationsSettings />
           </SettingsSection>
             </TabsContent>
 
@@ -1632,7 +1630,7 @@ export default function Settings() {
                     Install App
                   </CardTitle>
                   <CardDescription>
-                    Install Sourced Clothing CRM as a Progressive Web App for better performance.
+                    Install Lost In Time CRM as a Progressive Web App for better performance.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

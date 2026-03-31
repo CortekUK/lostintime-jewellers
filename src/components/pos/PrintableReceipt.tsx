@@ -233,7 +233,7 @@ Thank you for your business!`;
             <div className="flex justify-center mb-2">
               <Logo variant="full" size="sm" />
             </div>
-            <h1 className="font-bold text-lg font-luxury">Sourced Clothing</h1>
+            <h1 className="font-bold text-lg font-luxury">Lost In Time</h1>
             <p className="text-sm">Premium Fashion & Apparel</p>
             <p className="text-xs">
               123 High Street, London SW1A 1AA<br />

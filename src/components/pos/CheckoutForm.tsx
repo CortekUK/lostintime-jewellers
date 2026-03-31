@@ -45,8 +45,8 @@ interface CheckoutFormProps {
   onSignatureChange?: (signature: string | null) => void;
   staffMember: string;
   onStaffMemberChange: (member: string) => void;
-  locationId: number | null;
-  onLocationChange: (locationId: number | null) => void;
+  locationId?: number | null;
+  onLocationChange?: (locationId: number | null) => void;
   locationLocked?: boolean;
   disabled?: boolean;
 }
@@ -128,7 +128,7 @@ export function CheckoutForm({
     setDiscountInput(clampedValue.toString());
     onDiscountChange(clampedValue);
   };
-  const canCompleteSale = items.length > 0 && paymentMethod && staffMember && locationId && customerName.trim() && !isProcessing && !requiresOwnerApproval && !disabled;
+  const canCompleteSale = items.length > 0 && paymentMethod && staffMember && customerName.trim() && !isProcessing && !requiresOwnerApproval && !disabled;
   return <Card className="shadow-card">
       <CardHeader className="pb-3">
         <CardTitle className="font-luxury">Checkout</CardTitle>
@@ -148,28 +148,6 @@ export function CheckoutForm({
             </span>
           </div>
         </div>
-
-        {/* Shop Location - locked when cart has items */}
-        {locationLocked && locationId ? (
-          <div className="space-y-2">
-            <Label className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              Shop Location *
-            </Label>
-            <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg border">
-              <span className="font-medium">{resolvedLocationName}</span>
-              <Badge variant="secondary" className="ml-auto text-xs">
-                From product
-              </Badge>
-            </div>
-          </div>
-        ) : (
-          <LocationSelector
-            value={locationId}
-            onChange={onLocationChange}
-            required
-          />
-        )}
 
         {/* Customer Information */}
         <CustomerSearchInput
@@ -335,15 +313,11 @@ export function CheckoutForm({
             Select staff member to complete sale
           </p>}
         
-        {items.length > 0 && !paymentMethod && staffMember && locationId && customerName.trim() && <p className="text-center text-sm text-muted-foreground">
+        {items.length > 0 && !paymentMethod && staffMember && customerName.trim() && <p className="text-center text-sm text-muted-foreground">
             Select a payment method to complete sale
           </p>}
 
-        {items.length > 0 && staffMember && !locationId && <p className="text-center text-sm text-muted-foreground">
-            Select a shop location to complete sale
-          </p>}
-
-        {items.length > 0 && staffMember && locationId && !customerName.trim() && <p className="text-center text-sm text-muted-foreground">
+        {items.length > 0 && staffMember && !customerName.trim() && <p className="text-center text-sm text-muted-foreground">
             Enter customer name to complete sale
           </p>}
 

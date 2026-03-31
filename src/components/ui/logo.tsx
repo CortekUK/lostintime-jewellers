@@ -23,50 +23,24 @@ export function Logo({ variant = "full", size = "md", className }: LogoProps) {
     }
   };
 
-  // Use the new logo
-  const logoSrc = "/sourced-new.png";
+  const renderLogos = (imgClass: string) => (
+    <>
+      <img src="/logo-light.png" alt="Lost In Time" className={cn(imgClass, "dark:!hidden")} />
+      <img src="/logo-dark.png" alt="Lost In Time" className={cn(imgClass, "!hidden dark:!block")} />
+    </>
+  );
 
   if (variant === "login") {
-    return (
-      <img
-        src={logoSrc}
-        alt="Sourced Clothing"
-        className={cn("login-logo", className)}
-        loading="eager"
-      />
-    );
+    return renderLogos(cn("login-logo", className));
   }
 
   if (variant === "icon") {
-    return (
-      <img
-        src={logoSrc}
-        alt="Sourced Clothing"
-        className={cn(sizeClasses[size].image, className)}
-      />
-    );
+    return renderLogos(cn(sizeClasses[size].image, className));
   }
 
-  if (variant === "text") {
-    return (
-      <div className={cn("flex items-center space-x-3", className)}>
-        <img
-          src={logoSrc}
-          alt="Sourced Clothing"
-          className={sizeClasses[size].image}
-        />
-      </div>
-    );
-  }
-
-  // Default "full" variant
   return (
     <div className={cn("flex items-center space-x-3", className)}>
-      <img
-        src={logoSrc}
-        alt="Sourced Clothing"
-        className={sizeClasses[size].image}
-      />
+      {renderLogos(sizeClasses[size].image)}
     </div>
   );
 }

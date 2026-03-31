@@ -1,4 +1,4 @@
-// Core Types for Sourced Clothing CRM
+// Core Types for Lost In Time CRM
 
 import { Database } from '@/integrations/supabase/types';
 

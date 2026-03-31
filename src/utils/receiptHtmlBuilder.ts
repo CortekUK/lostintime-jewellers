@@ -45,11 +45,11 @@ export function buildReceiptHtml(data: ReceiptData, settings: SettingsData, isDa
   
   // Get store and branding info from settings
   const store = settings?.store || {
-    name: "Sourced Clothing",
+    name: "Lost In Time",
     tagline: "Premium Fashion & Apparel",
     address: "123 High Street, London SW1A 1AA",
     phone: "020 7123 4567",
-    email: "info@sourcedclothing.com"
+    email: "info@lostintime.com"
   };
   
   const contactInfo = [store.address, store.phone].filter(Boolean).join(' | ') || '123 High Street | 020 7123 4567';
@@ -260,7 +260,7 @@ export function buildReceiptHtml(data: ReceiptData, settings: SettingsData, isDa
 <body>
   <div class="receipt">
     <div class="rcpt-header">
-      <img src="/new-logo-cropped.png" alt="Sourced" class="rcpt-logo" />
+      <img src="/new-logo-cropped.png" alt="Lost In Time" class="rcpt-logo" />
       <div class="rcpt-meta">${escapeHtml(contactInfo)}</div>
     </div>
 

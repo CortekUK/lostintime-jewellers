@@ -78,7 +78,7 @@ export const AppLayout = ({ children, title, subtitle, showSearch = false, showD
         <div className="flex-1 flex flex-col min-w-0">
           {/* Top Header */}
           <header className="sticky top-0 z-40 header-divider bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="flex h-16 items-center gap-3 px-4 md:gap-4 md:px-6">
+            <div className="flex h-[52px] items-center gap-3 px-4 md:gap-4 md:px-6">
               <SidebarTrigger className="text-foreground" />
               
               {/* Breadcrumb */}
@@ -126,7 +126,7 @@ export const AppLayout = ({ children, title, subtitle, showSearch = false, showD
             >
               {title && (
                 <div className="mb-4 md:mb-6">
-                  <h1 className="font-luxury text-2xl md:text-3xl font-bold tracking-tight">{title}</h1>
+                  <h1 className="font-logo text-2xl md:text-3xl font-bold tracking-tight">{title}</h1>
                   {subtitle && (
                     <p className="text-muted-foreground mt-1 text-sm md:text-base">{subtitle}</p>
                   )}

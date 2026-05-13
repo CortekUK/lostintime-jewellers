@@ -335,7 +335,7 @@ export const GlobalSearchInput: React.FC<GlobalSearchInputProps> = ({
               aria-controls={showRecents ? "search-recents-listbox" : "search-results-listbox"}
               aria-autocomplete="list"
               aria-activedescendant={activeIndex >= 0 ? (showRecents ? `search-recent-${activeIndex}` : `search-result-${activeIndex}`) : undefined}
-              className="pl-9 pr-12 focus-visible:ring-2 focus-visible:ring-[hsl(var(--sidebar-primary))] focus-visible:ring-offset-1"
+              className="h-[30px] pl-9 pr-12 focus-visible:ring-2 focus-visible:ring-[hsl(var(--sidebar-primary))] focus-visible:ring-offset-1"
             />
             <Button
               variant="ghost"
@@ -375,7 +375,7 @@ export const GlobalSearchInput: React.FC<GlobalSearchInputProps> = ({
                 aria-controls={showRecents ? "search-recents-listbox" : "search-results-listbox"}
                 aria-autocomplete="list"
                 aria-activedescendant={activeIndex >= 0 ? (showRecents ? `search-recent-${activeIndex}` : `search-result-${activeIndex}`) : undefined}
-                className="pl-9 pr-12 focus-visible:ring-2 focus-visible:ring-[hsl(var(--sidebar-primary))] focus-visible:ring-offset-1"
+                className="h-[30px] pl-9 pr-12 focus-visible:ring-2 focus-visible:ring-[hsl(var(--sidebar-primary))] focus-visible:ring-offset-1"
               />
               <Button
                 variant="ghost"

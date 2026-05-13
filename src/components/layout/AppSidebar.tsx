@@ -172,13 +172,13 @@ export function AppSidebar() {
         <SidebarHeader className="header-divider flex items-center justify-center px-2 py-3">
           {isCollapsed ? <Tooltip>
               <TooltipTrigger asChild>
-                <span className="text-lg font-bold font-luxury text-primary cursor-pointer">LIT</span>
+                <span className="text-lg font-bold font-logo text-foreground cursor-pointer">LIT</span>
               </TooltipTrigger>
               <TooltipContent side="right">
                 <p>Lost In Time</p>
               </TooltipContent>
             </Tooltip> :
-            <span className="text-xl font-bold font-luxury tracking-wide text-primary">Lost In Time</span>
+            <span className="text-xl font-bold font-logo tracking-wide uppercase text-foreground">Lost In Time</span>
           }
         </SidebarHeader>
 
